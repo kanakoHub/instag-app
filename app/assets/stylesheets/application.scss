@@ -13,3 +13,51 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'variables';
+@import 'devise';
+@import 'buttons';
+
+html {
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background-color: $base-bg-color;
+  color: $text-base-color;
+  font-size: 1em;
+  font-family: Poppins, Verdana, Geneva, Tahoma, sans-serif;
+  font-style: normal;
+}
+
+.container {
+  padding: 64px 48px;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: $text-base-color;
+}
+
+.hidden {
+  display: none;
+}
+
+img {
+  width: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}

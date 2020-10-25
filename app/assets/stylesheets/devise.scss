@@ -1,0 +1,66 @@
+@import './variables';
+
+.field {
+  margin-bottom: 20px;
+
+  label {
+    color: $label-base-color;
+    font-family: $font-base_family;
+    font-weight: 500;
+    font-size: $font-base-size - 12px;
+    line-height: 48px;
+    opacity: 0.9;
+  }
+  
+  input {
+    margin-bottom: 20px;
+    padding: 20px 0;
+    width: 100%;
+    color: $text-base-color;
+    font-family: $font-base_family;
+    font-weight: normal;
+    font-size: $font-base-size;
+    line-height: 54px;
+    border: none;
+    border-bottom: 1px solid $text-base-color;
+    letter-spacing: 1px;
+  }
+}
+
+.actions {
+  position: relative;
+  
+  input {
+    width: 100%;
+    height: 120px;
+    background: $primary-color;
+    color: #000000;
+    font-family: $font-base_family;
+    font-weight: bold;
+    font-size: $font-base-size - 6px;
+    border: none;
+  }
+}
+
+.login-link {
+  top: 335px;
+}
+
+.create-link {
+  top: 200px;
+}
+
+.create-link {
+  top: 567px;
+}
+
+.nav-link {
+  text-align: right;
+  
+  a {
+    color: $label-base-color;
+    font-family: $font-base_family;
+    font-size: $font-base-size - 12px;
+    line-height: 48px;
+  }
+}
