@@ -1,5 +1,14 @@
 @import './variables';
 
+.back-btn {
+  img {
+    cursor: pointer;
+    width: $back-icon-size;
+    height: $back-icon-size;
+    margin: ($avatar-size - $back-icon-size) / 2 8px 0;
+  }
+}
+
 .btn-primary {
   background-color: $primary-color;
   border: none;
@@ -10,7 +19,7 @@
   font-weight: bold;
 }
 
-.float_btn {
+.float-btn {
   position: fixed;
   bottom: 16px;
   right: 16px;
@@ -26,3 +35,4 @@
     margin-top: 22px;
   }
 }
+
