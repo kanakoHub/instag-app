@@ -24,7 +24,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :profile, dependent: :destroy
+  # has_one :profile, dependent: :destroy
+  has_one_attached :avatar
 
   validates :account, presence: true, uniqueness: true
+
+  def avatar_image
+    if avatar&.attached?
+      user.avatar
+    else
+      'default-avatar.png'
+    end
+  end
 end
