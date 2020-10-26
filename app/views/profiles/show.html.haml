@@ -8,7 +8,9 @@
     .profilePage_user_image
       .profilePage_user_image_ellipse
         = image_tag @user.avatar_image
-        %input#user_avatar{:name => "user[avatar]", :type => "file"}/
+        = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+          = f.file_field :avatar
+          = f.submit '保存', class: 'btn-primary'
     .profilePage_user_have
       .profilePage_user_have_item
         %p posts
@@ -17,4 +19,4 @@
       .profilePage_user_have_item
         %p followings
 
-= javascript_pack_tag 'avatar'
+-# = javascript_pack_tag 'avatar'
