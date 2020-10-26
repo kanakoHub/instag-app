@@ -1,11 +1,13 @@
 @import './variables';
 
 .back-btn {
+  position: relative;
+  top: -48px;
+  
   img {
     cursor: pointer;
     width: $back-icon-size;
     height: $back-icon-size;
-    margin: ($avatar-size - $back-icon-size) / 2 8px 0;
   }
 }
 

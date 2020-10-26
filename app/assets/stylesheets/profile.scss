@@ -1,0 +1,64 @@
+@import './variables';
+
+.profilePage_user {
+
+  &_account {
+    text-align: center;
+
+    p {
+      font-size: $font-base-size + 6px;
+    }
+  }
+
+  &_image {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 100px;
+    
+    &_ellipse {
+      position: relative;
+      width: $avatar-size + 20px;
+      height: $avatar-size+ 20px;
+      border-radius: 100%;
+      border: 1px solid #E91E63;
+    }
+
+    img {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: $avatar-size;
+      height: $avatar-size;
+    }
+  }
+  
+  &_have {
+      display: flex;
+      justify-content: space-evenly;
+      padding: 0 60px;
+      margin-bottom: 50px;
+
+      &_item {
+        color: $label-base-color;
+        padding-left: 80px;
+      }
+  }
+
+  &_actionButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 1px solid $primary-color;
+    font-weight: bold;
+    padding: 0px 8px;
+    a {
+      color: $primary-color;
+    }
+  }
+  &_introduction {
+    font-size: 12px;
+  }
+}
