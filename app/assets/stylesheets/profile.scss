@@ -11,6 +11,7 @@
   }
 
   &_image {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     margin-top: 40px;
@@ -23,13 +24,14 @@
       border-radius: 100%;
       border: 1px solid #E91E63;
     }
-
+    
     img {
       position: absolute;
       top: 10px;
       left: 10px;
       width: $avatar-size;
       height: $avatar-size;
+      border-radius: 100%;
     }
   }
   
