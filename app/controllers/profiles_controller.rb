@@ -5,10 +5,6 @@ class ProfilesController < ApplicationController
     @profile = @user.profile
   end
 
-  # def edit
-  #   @profile = current_user.profile
-  # end
-
   def update
     @profile = current_user.profile
     @profile.update!(profile_params)
