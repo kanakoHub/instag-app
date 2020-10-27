@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class SnapsController < ApplicationController
   
   def index
     @user = current_user
