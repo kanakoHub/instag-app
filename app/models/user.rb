@@ -3,7 +3,6 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
-#  account                :string           default(""), not null
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  remember_created_at    :datetime
@@ -14,7 +13,6 @@
 #
 # Indexes
 #
-#  index_users_on_account               (account) UNIQUE
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
@@ -24,5 +22,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :account, presence: true, uniqueness: true
+  has_one :profile, dependent: :destroy
+  accepts_nested_attributes_for :profile
+
+  def avatar_image
+    if profile&.avatar&.attached?
+      profile.avatar
+    else
+      'default-avatar.png'
+    end
+  end
 end

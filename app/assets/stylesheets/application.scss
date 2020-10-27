@@ -17,6 +17,8 @@
 @import 'variables';
 @import 'devise';
 @import 'buttons';
+@import 'flash';
+@import 'profile';
 
 html {
   word-spacing: 1px;
@@ -40,6 +42,10 @@ body {
 .container {
   padding: 64px 48px;
   width: 100%;
+}
+
+.contents {
+  padding: 48px 0;
 }
 
 a {

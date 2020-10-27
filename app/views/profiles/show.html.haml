@@ -1,0 +1,21 @@
+.container
+  .contents
+    .profilePage_user_account
+      %p= @profile.account
+    .back-btn
+      = link_to :back do
+        = image_tag 'arrow.png'
+    .profilePage_user_image
+      .profilePage_user_image_ellipse
+        = image_tag @user.avatar_image, id: 'profilePageImage'
+      = form_with(model: @profile, id: 'profilePageForm', url: profile_path, method: 'put', local: true) do |f|
+        = f.file_field :avatar, class: 'hidden'
+    .profilePage_user_have
+      .profilePage_user_have_item
+        %p posts
+      .profilePage_user_have_item
+        %p followers
+      .profilePage_user_have_item
+        %p followings
+
+= javascript_pack_tag 'profile'
