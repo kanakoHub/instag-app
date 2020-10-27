@@ -2,7 +2,7 @@
 
 .snap {
   &_card {
-    margin: 100px 0;
+    margin: 120px 0;
   }
   
   &_author {
@@ -19,10 +19,24 @@
         margin-right: 30px;
       }
       
-      &_name {
-        font-size: $font-base-size;
-        font-weight: bold;
-        margin-bottom: 8px;
+      
+      &_post {
+        img {
+          width: $image_size + 14px;
+          height: $image_size + 14px;
+          border-radius: 100%;
+          margin-right: 50px;
+        }
+      }
+    }
+
+    &_name {
+      font-size: $font-base-size;
+      font-weight: bold;
+      margin-bottom: 8px;
+
+      &_post {
+        margin-top: 20px;
       }
     }
   }

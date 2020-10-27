@@ -19,6 +19,25 @@
   }
 }
 
+.status-btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.cancel {
+  a {
+    color: #2F80ED;
+  }
+}
+
+.post {
+  a {
+    color: $label-base-color;
+  }
+}
+
 .btn-primary {
   background-color: $primary-color;
   border: none;
