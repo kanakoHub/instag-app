@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_131057) do
 
   create_table "snaps", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.text "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_snaps_on_user_id"
