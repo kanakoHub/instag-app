@@ -6,8 +6,16 @@
   
   img {
     cursor: pointer;
-    width: $back-icon-size;
-    height: $back-icon-size;
+    width: $icon-size;
+    height: $icon-size;
+  }
+}
+
+.camera-btn {  
+  img {
+    cursor: pointer;
+    width: $camera-size;
+    height: $camera-size;
   }
 }
 

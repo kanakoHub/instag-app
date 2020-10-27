@@ -1,3 +1,21 @@
+.container
+  .contents
+    .camera-btn
+      = link_to :back do
+        = image_tag 'photo-camera.png'
+    .snap_card
+      .snap_author
+        .snap_author_image
+          = link_to profile_path do
+            = image_tag @user.avatar_image
+        .snap_author_name
+          = @user.profile.account
+      .snap_image
+      .snap_link
+        .snap_link_icon
+          = image_tag 'inactive-heart.png'
+        .snap_link_icon
+          = image_tag 'comment.png'
+        .snap_link_icon
+          = image_tag 'share.png'
 = link_to 'sign-out', destroy_user_session_path, data: { method: 'delete' }
-= link_to profile_path do
-  = image_tag @user.avatar_image

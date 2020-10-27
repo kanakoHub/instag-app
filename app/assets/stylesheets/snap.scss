@@ -1,0 +1,59 @@
+@import './variables';
+
+.snap {
+  &_card {
+    margin: 100px 0;
+  }
+  
+  &_author {
+    display: flex;
+    margin: 40px 0;
+    
+    &_image {
+      cursor: pointer;
+      
+      img {
+        width: $image_size;
+        height: $image_size;
+        border-radius: 100%;
+        margin-right: 30px;
+      }
+      
+      &_name {
+        font-size: $font-base-size;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+    }
+  }
+  
+  &_image {
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
+    
+  }
+  
+  &_link {
+    display: flex;
+    margin: 40px 0;
+
+    &_icon {  
+      img {
+        width: $link-size;
+        height: $link-size;
+        margin-right: 48px;
+      }
+    }
+  }
+}
