@@ -28,6 +28,10 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
 
+  def has_liked?(snap)
+    likes.exists?(snap_id: snap.id)
+  end
+
   def avatar_image
     if profile&.avatar&.attached?
       profile.avatar

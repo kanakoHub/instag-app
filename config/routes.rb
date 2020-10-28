@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   resources :snaps
 
   resource :profile, only: [:show, :update]
+
+  namespace :api, defaults: {format: :json} do
+    scope '/snaps/:snap_id' do
+      resource :like, only: [:show, :create, :destroy]
+    end
+  end
 end
