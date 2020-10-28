@@ -1,0 +1,29 @@
+.container
+  .contents
+    .status-btn
+      .cancel-btn
+        = link_to 'Cnacel', :back
+      %div
+        %p Status
+      .post-btn
+        %p Post
+    .snap_card
+      .snap_author
+        .snap_author_image_post
+          = image_tag @snap.user.avatar_image
+        .snap_author_name_post
+          = @snap.user.profile.account
+      .snap_contents
+        %ul
+          - @snap.errors.full_messages.each do |message|
+            %li= message
+        = form_with(model: @snap, url: snaps_path, method: 'post', local: true) do |f|
+          .form
+            = f.text_field :description, class: 'form_description', placeholder: " What's on your mind ? "
+          %div
+            = f.file_field :snaps, multiple: true, class: 'hidden'
+          %div
+          = f.submit '保存', class: 'hidden'
+        %button#album ＋ Album
+
+= javascript_pack_tag 'snap'

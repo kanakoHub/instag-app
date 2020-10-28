@@ -1,0 +1,110 @@
+@import './variables';
+
+.snap {
+  &_card {
+    margin: 120px 0;
+  }
+  
+  &_author {
+    display: flex;
+    margin: 40px 0;
+    
+    &_image {
+      cursor: pointer;
+      
+      img {
+        width: $image_size;
+        height: $image_size;
+        border-radius: 100%;
+        margin-right: 24px;
+      }
+      
+      &_post {
+        img {
+          width: $image_size + 14px;
+          height: $image_size + 14px;
+          border-radius: 100%;
+          margin-right: 50px;
+        }
+      }
+    }
+
+    &_info {
+      display: block;
+
+      &_name {
+        font-size: $font-base-size - 2px;
+      }
+      
+      &_time {
+        font-size: $font-base-size - 6px;
+        color: $label-base-color;
+      }
+    }
+
+    &_name {
+      &_post {
+        font-size: $font-base-size + 4px;
+        margin-top: 20px;
+      }
+    }
+  }
+  
+
+  &_image {
+    margin: 40px 0;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    
+    img {
+      width: 33%;
+      height: auto;
+      margin: 10px;
+    }
+    
+  }
+  
+  &_link {
+    display: flex;
+    margin: 30px 0;
+    
+    &_icon {        
+      img {
+        cursor: pointer;
+        width: $link-size;
+        height: $link-size;
+        margin-right: 48px;
+      }
+    }
+  }
+
+  &_description {
+    font-size: $font-base-size - 4px;
+  }
+  
+  &_info {
+    font-size: $font-base-size - 4px;
+    display: flex;
+    margin: 30px 0;
+    
+    &_item {
+      margin-right: 36px;
+    }
+  }
+
+}
+
+.form {
+  margin: 20px 0;
+  
+  &_description {
+    width: 100%;
+    font-family: $font-base_family;
+    font-weight: normal;
+    font-size: $font-base-size;
+    line-height: 80px;
+    border: none;
+    border-bottom: 1px solid $text-base-color;
+  }
+}
