@@ -18,4 +18,25 @@ class Snap < ApplicationRecord
   has_many_attached :snaps
   
   validates :description, presence: true
+
+  def time_difference
+    # 時間
+    hour_difference = (Time.zone.now - created_at).floor / (60 * 60)
+    # 日
+    day_difference = (Time.zone.now - created_at).floor / (60 * 60 * 24)
+    # 月
+    month_difference = (Time.zone.now - created_at).floor / (60 * 60 * 24 * 30)
+    # 年
+    year_difference = (Time.zone.now - created_at).floor / (60 * 60 * 24 * 30 * 12)
+
+    if hour_difference / 24 < 1
+      "#{hour_difference} hours ago"
+    elsif day_difference / 30 < 1
+      "#{day_difference} days ago"
+    elsif month_difference / 12 < 1
+      "#{month_difference} month ago"
+    else
+      "#{year_difference} years ago"
+    end
+  end
 end

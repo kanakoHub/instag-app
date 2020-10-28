@@ -9,9 +9,14 @@
           .snap_author_image
             = link_to profile_path do
               = image_tag snap.user.avatar_image
-          .snap_author_name
-            = snap.user.profile.account
+          .snap_author_info
+            .snap_author_info_name
+              = snap.user.profile.account
+            .snap_author_info_time
+              = snap.time_difference
         .snap_image
+          - snap.snaps.each do |image|
+            = image_tag(image)
         .snap_link
           .snap_link_icon
             = image_tag 'inactive-heart.png'
@@ -19,4 +24,11 @@
             = image_tag 'comment.png'
           .snap_link_icon
             = image_tag 'share.png'
+        .snap_description
+          = snap.description
+        .snap_info
+          .snap_info_item
+            = snap.user.profile.account
+          .snap_info_item
+            = l snap.created_at, format: :short
 = link_to 'sign-out', destroy_user_session_path, data: { method: 'delete' }

@@ -21,6 +21,6 @@ class SnapsController < ApplicationController
   private
 
   def snap_params
-    params.require(:snap).permit(:description, :snaps)
+    params.require(:snap).permit(:description, snaps: [])
   end
 end

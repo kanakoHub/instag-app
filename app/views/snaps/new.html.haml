@@ -18,9 +18,9 @@
           - @snap.errors.full_messages.each do |message|
             %li= message
         = form_with(model: @snap, url: snaps_path, method: 'post', local: true) do |f|
+          .form
+            = f.text_field :description, class: 'form_description', placeholder: " What's on your mind ? "
           %div
-            = f.text_field :description, class: 'text'
-          %div
-            = f.file_field :snaps
+            = f.file_field :snaps, multiple: true
           %div
           = f.submit '保存', class: ''
