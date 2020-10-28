@@ -1,12 +1,12 @@
 .container
   .contents
     .status-btn
-      .cancel
+      .cancel-btn
         = link_to 'Cnacel', :back
       %div
         %p Status
-      .post
-        = link_to 'Post', snaps_path
+      .post-btn
+        %p Post
     .snap_card
       .snap_author
         .snap_author_image_post
@@ -21,6 +21,9 @@
           .form
             = f.text_field :description, class: 'form_description', placeholder: " What's on your mind ? "
           %div
-            = f.file_field :snaps, multiple: true
+            = f.file_field :snaps, multiple: true, class: 'hidden'
           %div
-          = f.submit '保存', class: ''
+          = f.submit '保存', class: 'hidden'
+        %button#album ＋ Album
+
+= javascript_pack_tag 'snap'
