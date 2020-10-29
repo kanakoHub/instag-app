@@ -19,7 +19,16 @@
             = image_tag(image)
         .snap_link
           .snap_link_icon
-            = image_tag 'inactive-heart.png'
+            - if current_user.has_liked?(snap)
+              %div{class: "snap_link_heart#{snap.id}", id: "activeHeart", data: {snap_id: snap.id}}
+                = image_tag 'active-heart.png'
+              .hidden{class: "snap_link_heart#{snap.id}", id: "inactiveHeart", data: {snap_id: snap.id}}  
+                = image_tag 'inactive-heart.png'
+            - else
+              %div{class: "snap_link_heart#{snap.id}", id: "inactiveHeart", data: {snap_id: snap.id}}
+                = image_tag 'inactive-heart.png'
+              .hidden{class: "snap_link_heart#{snap.id}", id: "activeHeart", data: {snap_id: snap.id}}  
+                = image_tag 'active-heart.png'
           .snap_link_icon
             = image_tag 'comment.png'
           .snap_link_icon
@@ -32,4 +41,6 @@
             = snap.user.profile.account
           .snap_info_item
             = l snap.created_at, format: :short
+
 = link_to 'sign-out', destroy_user_session_path, data: { method: 'delete' }
+= javascript_pack_tag 'like'

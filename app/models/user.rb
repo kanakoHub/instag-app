@@ -23,9 +23,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :snaps, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
+
+  def has_liked?(snap)
+    likes.exists?(snap_id: snap.id)
+  end
 
   def avatar_image
     if profile&.avatar&.attached?
