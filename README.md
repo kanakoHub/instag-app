@@ -1,18 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
-ruby 2.6.5p114
+　2.6.5p114
 
 * System dependencies
 
 * Configuration
 
 * Database creation
+　'pg', '>= 0.18', '< 2.0'
 
 * Database initialization
 
@@ -23,3 +19,11 @@ ruby 2.6.5p114
 * Deployment instructions
 
 * ...
+ログイン機能
+プロフィール画像設定
+画像投稿機能
+タイムライン
+いいね機能
+コメント機能
+メール送信
+フォロー機能
