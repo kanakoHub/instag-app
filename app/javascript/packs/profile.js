@@ -1,74 +1,38 @@
 import $ from 'jquery'
-// import axios from 'modules/axios'
+import axios from 'modules/axios'
+
+const image = 'profilePageImage'
+const avatar = 'profile_avatar'
+const profileForm = 'profilePageForm'
+const ellipse = 'profilePage_user_image_ellipse'
 
 const imageChange = (imgsrc) => {
-  $('.profilePage_user_image_ellipse').html(
-    `<img id="profilePageImage" src=${imgsrc.imgsrc}>`
+  $(`.${ellipse}`).html(
+    `<img id=${image} src=${imgsrc}>`
   )
 }
-
+  
 const addFileChange = (evt) => {
-  const fileIn = evt.target
-  
-  const form = document.getElementById('profilePageForm');
+  const form = document.getElementById(profileForm);
   const fd = new FormData(form);
-
-  const xhr = new XMLHttpRequest();
-  xhr.open("PUT", "/profile");
-
-  // Basic Events
-  xhr.addEventListener('load', (evt) => {
-      console.log('** xhr: load');
-      let response = JSON.parse(xhr.responseText);
-      // console.log(response);
-      const imgsrc = response
-      imageChange(imgsrc)
-  });
-
-  xhr.upload.addEventListener('loadstart', (evt) => {
-    // アップロード開始
-  });
   
-  xhr.upload.addEventListener('progress', (evt) => {
-    // アップロード進行パーセント
-    let percent = (evt.loaded / evt.total * 100).toFixed(1);
-    console.log(`++ xhr.upload: progress ${percent}%`);
-  });
-  
-  xhr.upload.addEventListener('abort', (evt) => {
-    // アップロード中断
-    console.log('++ xhr.upload: abort (Upload aborted)');
-  });
-  
-  xhr.upload.addEventListener('error', (evt) => {
-    // アップロードエラー
-    console.log('++ xhr.upload: error (Upload failed)');
-  });
-  
-  xhr.upload.addEventListener('load', (evt) => {
-    // アップロード正常終了
-    console.log('++ xhr.upload: load (Upload Completed Successfully)');
-  });
-  
-  xhr.upload.addEventListener('timeout', (evt) => {
-    // アップロードタイムアウト
-    console.log('++ xhr.upload: timeout');
-  });
-  
-  xhr.upload.addEventListener('loadend', (evt) => {
-    // アップロード終了 (エラー・正常終了両方)
-    console.log('++ xhr.upload: loadend (Upload Finished)');
-  });
-  
-  xhr.send(fd);
+  axios.put('/profile', fd)
+  .then((response) => {
+    const imgsrc = response.data.imgsrc
+    imageChange(imgsrc)
+  })
+  .catch((e) => {
+    window.alert('Error')
+    console.log(e)
+  })
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  $("#profilePageImage").on("click", () => {
+  $(document).on('click', `#${image}`, function(){
     $("input[type=file]").click()
   });
   
-  const f = document.getElementById('profile_avatar')
+  const f = document.getElementById(avatar)
   f.addEventListener('change', (evt) => {
     addFileChange(evt)
   });
