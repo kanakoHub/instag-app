@@ -12,10 +12,19 @@
         = f.file_field :avatar, class: 'hidden'
     .profilePage_user_have
       .profilePage_user_have_item
+        .count
+          = @user.snap_count
         %p posts
       .profilePage_user_have_item
+        .count
+          = @user.snap_count
         %p followers
       .profilePage_user_have_item
+        .count
+          = @user.snap_count
         %p followings
+    .profilePage_user_snap
+      - @user.snaps.each do |image|
+        = image_tag(image)
 
 = javascript_pack_tag 'profile'

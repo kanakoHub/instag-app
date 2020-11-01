@@ -1,7 +1,6 @@
 @import './variables';
 
 .profilePage_user {
-
   &_account {
     text-align: center;
 
@@ -35,16 +34,27 @@
     }
   }
   
-  &_have {
-      display: flex;
-      justify-content: space-evenly;
-      padding: 0 60px;
-      margin-bottom: 50px;
+  &_have {    
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 60px;
 
-      &_item {
-        color: $label-base-color;
-        padding-left: 80px;
+    &_item {
+      margin-bottom: 50px;
+      padding-left: 80px;
+      
+      .count {
+        text-align: center;
+        color: $text-base-color;
+        font-size: $font-base-size + 10px;
+        margin-bottom: 20px;
       }
+
+      p {
+        color: $label-base-color;
+      }
+    }
+      
   }
 
   &_actionButton {
@@ -60,7 +70,21 @@
       color: $primary-color;
     }
   }
+  
   &_introduction {
     font-size: 12px;
+  }
+
+  &_snap {
+    margin: 40px 0;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    
+    img {
+      width: 33%;
+      height: auto;
+      margin: 10px;
+    }
   }
 }

@@ -39,4 +39,8 @@ class User < ApplicationRecord
       'default-avatar.png'
     end
   end
+
+  def snap_count
+    snaps.count
+  end
 end

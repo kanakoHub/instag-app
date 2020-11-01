@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
   def show
     @user = current_user
     @profile = @user.profile
+    @snap = @user.snaps
   end
 
   def update
