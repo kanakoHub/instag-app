@@ -50,19 +50,39 @@
     }
   }
   
-
-  &_image {
+  &_wrapper {
     margin: 40px 0;
+    width: auto;
     height: auto;
-    display: flex;
-    flex-flow: row wrap;
-    
-    img {
-      width: 33%;
-      height: auto;
-      margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-flow: dense;
+    column-gap: 20px;
+    row-gap: 15px;
+
+    .image-large {
+      grid-row: span 2;
+      grid-column: span 3;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
     
+    .image-small {
+      grid-row: span 1;
+      grid-column: span 2;
+      
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .wrap {
+      display: block;
+    }
   }
   
   &_link {
