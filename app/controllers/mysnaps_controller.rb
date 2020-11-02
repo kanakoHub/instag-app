@@ -1,6 +1,5 @@
 class MysnapsController < ApplicationController
   def index
-    @snaps = Snap.all
-    # binding.pry
+    @snaps = current_user.snaps
   end
 end
