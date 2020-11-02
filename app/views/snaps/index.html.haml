@@ -3,6 +3,11 @@
     .camera-btn
       = link_to new_snap_path do
         = image_tag 'photo-camera.png'
+    .dropdown
+      = image_tag current_user.avatar_image, class: 'dropbtn'
+      .dropdown-content
+        = link_to 'プロフィール', profile_path
+        = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
     - @snaps.each do |snap|
       .snap_card
         .snap_author
@@ -40,5 +45,4 @@
           .snap_info_item
             = l snap.created_at, format: :short
 
-= link_to 'sign-out', destroy_user_session_path, data: { method: 'delete' }
 = javascript_pack_tag 'like'
