@@ -23,8 +23,17 @@
         .count
           = @user.snap_count
         %p followings
-    .profilePage_user_snap
-      - @user.snaps.each do |image|
-        = image_tag(image)
+    .snap_wrapper
+      - count = 1
+      - @snap.each do |image|
+        - if count % 6 == 1 || count % 6 == 5
+          .snap_wrapper_image{class: "image-large"}
+            = image_tag(image)
+        - else
+          .snap_wrapper_image{class: "image-small"}
+            = image_tag(image)
+        - count += 1
+    -# .profilePage_user_snap
+    -#     = image_tag(image)
 
 = javascript_pack_tag 'profile'

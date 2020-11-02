@@ -13,4 +13,6 @@ Rails.application.routes.draw do
       resource :like, only: [:create, :destroy]
     end
   end
+
+  resources :mysnaps, only: [:index]
 end

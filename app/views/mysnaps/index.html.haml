@@ -1,0 +1,10 @@
+.snap_wrapper
+  - count = 1
+  - @snaps.snaps.each do |image|
+    - if count % 6 == 1 || count % 6 == 5
+      .snap_wrapper_image{class: "image-large"}
+        = image_tag(image)
+    - else
+      .snap_wrapper_image{class: "image-small"}
+        = image_tag(image)
+    - count += 1
