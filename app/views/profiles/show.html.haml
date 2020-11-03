@@ -3,7 +3,7 @@
     .profilePage_user_account
       %p= @profile.account
     .back-btn
-      = link_to :back do
+      = link_to root_path do
         = image_tag 'arrow.png'
     .profilePage_user_image
       .profilePage_user_image_ellipse
@@ -12,10 +12,18 @@
         = f.file_field :avatar, class: 'hidden'
     .profilePage_user_have
       .profilePage_user_have_item
+        .count
+          = @user.snap_count
         %p posts
       .profilePage_user_have_item
+        .count
+          = @user.snap_count
         %p followers
       .profilePage_user_have_item
+        .count
+          = @user.snap_count
         %p followings
+    - @user.snaps.each do |snap|
+      = render 'commons/snaps', snap: snap
 
 = javascript_pack_tag 'profile'

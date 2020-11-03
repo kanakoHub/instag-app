@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
     @profile = current_user.profile
     @profile.update!(profile_params)
     imgsrc = url_for(@profile.avatar)
-    render json: {imgsrc: imgsrc}
+    render json: { imgsrc: imgsrc }
   end
 
   private
