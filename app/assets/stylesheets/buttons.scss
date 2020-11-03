@@ -80,7 +80,6 @@
 
 .dropbtn {
   cursor: pointer;
-  // border: none;
 }
 
 .dropdown {
@@ -118,7 +117,8 @@
   text-decoration: none;
   display: block;
   color: $text-base-color;
-  font-size: $font-base-size - 8px;
+  font-size: $font-base-size - 10px;
+  font-family: $font-base_family;
 }
 
 .dropdown-content a:hover {
