@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $("input[type=file]").click()
   });
   
-  $(".post-btn").on("click", () => {
+  $("#postBtn").on("click", () => {
     $("input[type=submit]").click()
   });
 })

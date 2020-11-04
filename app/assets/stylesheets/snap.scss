@@ -89,7 +89,7 @@
     display: flex;
     margin: 30px 0;
     
-    &_icon, &_heart {        
+    &_icon {        
       img {
         cursor: pointer;
         width: $link-size;
@@ -120,7 +120,7 @@
   
   &_description {
     width: 100%;
-    font-family: $font-base_family;
+    font-family: $font-base-family;
     font-weight: normal;
     font-size: $font-base-size;
     line-height: 80px;

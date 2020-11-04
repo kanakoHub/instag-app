@@ -1,0 +1,44 @@
+@import './variables';
+
+.dropdown {  
+  img {
+    cursor: pointer;
+    width: $image_size;
+    height: $image_size;
+    border-radius: 100%;
+  }
+
+  &_content {
+    font-weight: normal;
+    display: none;
+    top: 200px;
+    right: 30px;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  
+    &.mini{
+      min-width: 100px;
+    }
+
+    a {
+      padding: 10px 20px;
+      text-decoration: none;
+      display: block;
+      color: $text-base-color;
+      font-size: $font-base-size - 14px;
+      // font-family: $font-base-family;
+      
+      &:hover {
+        background-color: white;
+      }
+    }
+  }
+}
+
+.dropdown:hover .dropdown_content {
+  display: block;
+}
+
