@@ -33,7 +33,7 @@
               .hidden{class: "snap_link_heart#{snap.id}", id: "activeHeart", data: {snap_id: snap.id}}  
                 = image_tag 'active-heart.png'
           .snap_link_icon
-            = link_to api_comments_path(snap) do
+            = link_to snap_path(snap) do
               = image_tag 'comment.png'
           .snap_link_icon
             = link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do
