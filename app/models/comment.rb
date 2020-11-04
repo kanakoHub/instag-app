@@ -13,4 +13,7 @@
 #  index_comments_on_snap_id  (snap_id)
 #
 class Comment < ApplicationRecord
+  belongs_to :snap
+
+  validates :content, presence: true
 end
