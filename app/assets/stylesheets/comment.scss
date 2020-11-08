@@ -1,0 +1,138 @@
+@import './variables';
+
+.commentPage {
+  &_title {
+    text-align: center;
+
+    p {
+      font-size: $font-base-size + 6px;
+    }
+  }
+}
+
+.comment-text-area {
+  textarea {
+    position: fixed;
+    bottom: 200px;
+    width: 90%;
+    padding: 8px 8px;
+    min-height: 440px;
+    resize: vertical;
+    border: 1px solid #EBEBEB;
+    font-size: $font-base-size + 6px;
+    color: $text-base-color;
+    font-family: $font-base-family;
+    font-weight: normal;
+    font-size: $font-base-size;
+  
+    &.sm {
+      min-height: 160px;
+    }
+  }
+}
+
+.comment {
+  &_card {
+    margin: 120px 0;
+  }
+  
+  &_author {
+    display: flex;
+    margin: 40px 0;
+    
+    &_image {
+      cursor: pointer;
+      
+      img {
+        width: $image_size;
+        height: $image_size;
+        border-radius: 100%;
+        margin-right: 24px;
+      }
+    }
+
+    &_info {
+      display: block;
+
+      &_name {
+        font-size: $font-base-size - 2px;
+      }
+      
+      &_time {
+        font-size: $font-base-size - 6px;
+        color: $label-base-color;
+      }
+    }
+
+    &_name {
+      &_post {
+        font-size: $font-base-size + 4px;
+        margin-top: 20px;
+      }
+    }
+  }
+  
+  &_wrapper {
+    margin: 40px 0;
+    width: auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-flow: dense;
+    column-gap: 20px;
+    row-gap: 15px;
+
+    .image-large {
+      grid-row: span 2;
+      grid-column: span 3;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    
+    .image-small {
+      grid-row: span 1;
+      grid-column: span 2;
+      
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .wrap {
+      display: block;
+    }
+  }
+  
+  &_link {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+    width: 30%;
+    
+    &_icon {        
+      img {
+        cursor: pointer;
+        width: $link-size;
+        height: $link-size;
+      }
+    }
+  }
+
+  &_description {
+    font-size: $font-base-size - 4px;
+  }
+  
+  &_info {
+    font-size: $font-base-size - 4px;
+    display: flex;
+    margin: 30px 0;
+    
+    &_item {
+      margin-right: 36px;
+    }
+  }
+}
