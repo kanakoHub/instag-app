@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     scope '/snaps/:snap_id' do
       resource :like, only: [:create, :destroy]
-      resources :comments, only: [:index, :create]
+      resources :comments, only: [:create]
     end
   end
 

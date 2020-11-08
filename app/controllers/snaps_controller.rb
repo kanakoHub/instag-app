@@ -18,6 +18,10 @@ class SnapsController < ApplicationController
     end
   end
 
+  def show
+    @snap = Snap.find(params[:id])
+  end
+
   private
 
   def snap_params

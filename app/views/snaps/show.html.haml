@@ -1,8 +1,26 @@
 .container
-  .contents
-    %header
-      .back-btn
-        = link_to root_path do
-          = image_tag 'arrow.png'
-      %div
-        %p Comment
+  .float_header
+    .back_btn
+      = link_to root_path do
+        = image_tag 'arrow.png'
+    .commentPage_title
+      %p Comment
+  .comments_container#comment-show{data: {snap_id: @snap.id}}
+    - @snap.comments.each do |comment|
+      .comment_card
+        .comment_author
+          .comment_author_image
+            = image_tag comment.user.avatar_image
+          .comment_author_info
+            .comment_author_info_name
+              %p= comment.user.profile.account
+            .comment_author_info_content
+              %p= comment.content
+  .float_btn.show-comment-form
+    = image_tag 'comment.png'
+  .comment-text-area.hidden
+    = text_area_tag :comment_content, '', class: 'sm'
+    .float_btn.add-comment-button
+      %p ＋ Comment
+
+= javascript_pack_tag 'comment'
