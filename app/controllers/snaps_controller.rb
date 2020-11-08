@@ -11,11 +11,15 @@ class SnapsController < ApplicationController
   def create
     @snap = current_user.snaps.build(snap_params)
     if @snap.save
-      redirect_to root_path, notice: 'I saved it!'
+      redirect_to root_path, notice: '保存しました!'
     else
-      flash.now[:error] = 'I failed to save it.'
+      flash.now[:error] = '保存に失敗しました。'
       render :new
     end
+  end
+
+  def show
+    @snap = Snap.find(params[:id])
   end
 
   private

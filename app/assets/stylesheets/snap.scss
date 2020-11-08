@@ -87,14 +87,15 @@
   
   &_link {
     display: flex;
+    justify-content: space-between;
     margin: 30px 0;
+    width: 30%;
     
-    &_icon, &_heart {        
+    &_icon {        
       img {
         cursor: pointer;
         width: $link-size;
         height: $link-size;
-        margin-right: 48px;
       }
     }
   }
@@ -112,7 +113,6 @@
       margin-right: 36px;
     }
   }
-
 }
 
 .form {
@@ -120,7 +120,7 @@
   
   &_description {
     width: 100%;
-    font-family: $font-base_family;
+    font-family: $font-base-family;
     font-weight: normal;
     font-size: $font-base-size;
     line-height: 80px;

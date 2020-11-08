@@ -17,9 +17,11 @@
 @import 'variables';
 @import 'devise';
 @import 'buttons';
+@import 'dropdown';
 @import 'flash';
 @import 'profile';
 @import 'snap';
+@import 'comment';
 
 html {
   word-spacing: 1px;
@@ -45,8 +47,14 @@ body {
   width: 100%;
 }
 
-.contents {
-  padding: 48px 0;
+header {
+  margin: 60px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.float_header {
+  margin: 60px 0;
 }
 
 a {
