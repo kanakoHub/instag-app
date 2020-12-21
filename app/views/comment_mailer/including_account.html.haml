@@ -1,0 +1,6 @@
+%p #{@user.profile.account} さん
+%p 以下のコメントにあなたのアカウントが書き込まれました。
+
+%p #{@snap.comment.content}
+
+= link_to 'snapコメントを確認する', snap_path(@snap)

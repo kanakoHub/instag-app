@@ -19,4 +19,17 @@ class Comment < ApplicationRecord
   belongs_to :snap
 
   validates :content, presence: true
+
+  after_save :send_email
+
+  private
+
+  def send_email
+    users = User.all
+    users.each do |user|
+      if content.include?("@#{user.profile.account}")
+        CommentMailer.including_account(user, snap).deliver_later
+      end
+    end
+  end
 end
