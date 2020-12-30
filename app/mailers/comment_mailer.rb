@@ -3,7 +3,6 @@ class CommentMailer < ApplicationMailer
     @user = user
     @snap = snap
     @content = content
-    binding.pry
     mail to: user.email, subject: '【お知らせ】コメントにあなたのアカウントが書き込まれました'
   end
 end

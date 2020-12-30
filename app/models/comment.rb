@@ -27,9 +27,7 @@ class Comment < ApplicationRecord
   def send_email
     users = User.all
     users.each do |user|
-      if content.include?("@#{user.profile.account}")
-        CommentMailer.including_account(user, snap, content).deliver_later
-      end
+      CommentMailer.including_account(user, snap, content).deliver_later if content.include?("@#{user.profile.account}")
     end
   end
 end
