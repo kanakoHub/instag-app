@@ -28,7 +28,7 @@ class Comment < ApplicationRecord
     users = User.all
     users.each do |user|
       if content.include?("@#{user.profile.account}")
-        CommentMailer.including_account(user, snap).deliver_later
+        CommentMailer.including_account(user, snap, content).deliver_later
       end
     end
   end
