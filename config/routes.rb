@@ -11,6 +11,11 @@ Rails.application.routes.draw do
 
   resources :snaps
 
+  resources :accounts, only: [:show] do
+    resources :follows, only: [:create]
+    resources :unfollows, only: [:create]
+  end
+
   resource :profile, only: %i[show update]
 
   namespace :api, defaults: { format: :json } do
