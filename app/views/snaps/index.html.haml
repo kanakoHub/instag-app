@@ -12,7 +12,7 @@
     .snap_card
       .snap_author
         .snap_author_image
-          = link_to profile_path do
+          = link_to account_path(snap.user) do
             = image_tag snap.user.avatar_image
         .snap_author_info
           .snap_author_info_name
