@@ -1,0 +1,46 @@
+@import './variables';
+
+.account {
+  &_container{
+    padding: 64px 48px 20px 48px;
+    width: 100%;
+  }
+
+  &_card{
+    padding: 52px 48px;
+    width: 100%;
+    border-bottom: 1px solid $label-base-color;
+  }
+
+  &_author {
+    display: flex;
+    margin: 40px 0;
+    
+    &_image {
+      cursor: pointer;
+      
+      img {
+        width: $image_size + 42px;
+        height: $image_size + 42px;
+        border-radius: 100%;
+        margin-right: 48px;
+      }
+    }
+
+    &_info {
+      display: block;
+
+      &_name {
+        font-size: $font-base-size + 4px;
+        // font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      &_time {
+        font-size: $font-base-size;
+        color: $label-base-color;
+        margin-top: 20px;
+      }
+    }
+  }
+}
