@@ -3,7 +3,7 @@
     .back_btn
       = link_to root_path do
         = image_tag 'arrow.png'
-    .profilePage_user_account
+    .page_name
       %p= user.profile.account
     - if user != current_user
       .follow_btn
@@ -22,14 +22,16 @@
       .count
         = user.snap_count
       %p posts
-    .profilePage_user_have_item
-      .count
-        %p#followers= user.follower_count
-      %p followers
-    .profilePage_user_have_item
-      .count
-        = user.following_count
-      %p followings
+    = link_to account_followings_path(user) do 
+      .profilePage_user_have_item
+        .count
+          %p#followers= user.follower_count
+        %p followers
+    = link_to account_followings_path(user) do
+      .profilePage_user_have_item
+        .count
+          = user.following_count
+        %p followings
   - user.snaps.each do |snap|
     = render 'commons/snaps', snap: snap
 

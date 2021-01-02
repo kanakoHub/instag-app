@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   resources :snaps
 
-  resources :accounts, only: [:show]
+  resources :accounts, only: [:show] do
+    resources :followings, only: [:index]
+  end
 
   resource :profile, only: %i[show update]
   
@@ -27,5 +29,4 @@ Rails.application.routes.draw do
     end
   end
 
-  # resources :mysnaps, only: [:index]
 end
