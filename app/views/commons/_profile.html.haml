@@ -7,7 +7,10 @@
       %p= user.profile.account
     - if user != current_user
       .follow_btn
-        %p follow
+        - if current_user&.has_followed?(user)
+          %p{class: "account_follow", id: "unfollow", data: {account_id: user.id}} Unfollow
+        - else
+          %p{class: "account_follow", id: "follow", data: {account_id: user.id}} Follow
   .profilePage_user_image
     .profilePage_user_image_ellipse
       = image_tag user.avatar_image, id: 'profilePageImage'
@@ -21,13 +24,14 @@
       %p posts
     .profilePage_user_have_item
       .count
-        = user.snap_count
+        %p#followers= user.follower_count
       %p followers
     .profilePage_user_have_item
       .count
-        = user.snap_count
+        = user.following_count
       %p followings
   - user.snaps.each do |snap|
     = render 'commons/snaps', snap: snap
 
 = javascript_pack_tag 'profile'
+= javascript_pack_tag 'follow'

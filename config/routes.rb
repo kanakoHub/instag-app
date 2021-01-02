@@ -11,17 +11,23 @@ Rails.application.routes.draw do
 
   resources :snaps
 
-  resources :accounts, only: [:show] do
-    resources :follows, only: [:create]
-    resources :unfollows, only: [:create]
-  end
+  resources :accounts, only: [:show]
+  # resources :accounts, only: [:show] do
+  #   resources :follows, only: [:create]
+  #   resources :unfollows, only: [:create]
+  # end
 
   resource :profile, only: %i[show update]
-
+  
   namespace :api, defaults: { format: :json } do
     scope '/snaps/:snap_id' do
       resource :like, only: %i[create destroy]
       resources :comments, only: [:create]
+    end
+
+    scope '/accounts/:account_id' do
+      resources :follows, only: [:create]
+      resources :unfollows, only: [:create]
     end
   end
 
