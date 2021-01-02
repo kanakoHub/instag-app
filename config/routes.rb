@@ -27,5 +27,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :mysnaps, only: [:index]
+  # resources :mysnaps, only: [:index]
 end
