@@ -1,6 +1,6 @@
 class SnapsController < ApplicationController
   def index
-    @snaps = Snap.all
+    @snaps = Snap.all.order(id: "DESC")
   end
 
   def new
@@ -19,6 +19,7 @@ class SnapsController < ApplicationController
 
   def show
     @snap = Snap.find(params[:id])
+    @comments = @snap.comments.order(id: "DESC")
   end
 
   private

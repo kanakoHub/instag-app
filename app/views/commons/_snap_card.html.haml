@@ -1,0 +1,44 @@
+- snaps.each do |snap|
+  .snap_card
+    .snap_author
+      .snap_author_image
+        = link_to account_path(snap.user) do
+          = image_tag snap.user.avatar_image
+      .snap_author_info
+        .snap_author_info_name
+          = snap.user.profile.account
+        .snap_author_info_time
+          = snap.time_difference
+    = render 'commons/snaps', snap: snap
+    .snap_link
+      .snap_link_icon
+        - if current_user.has_liked?(snap)
+          %div{class: "snap_link_heart#{snap.id}", id: "activeHeart", data: {snap_id: snap.id}}
+            = image_tag 'active-heart.png'
+          .hidden{class: "snap_link_heart#{snap.id}", id: "inactiveHeart", data: {snap_id: snap.id}}  
+            = image_tag 'inactive-heart.png'
+        - else
+          %div{class: "snap_link_heart#{snap.id}", id: "inactiveHeart", data: {snap_id: snap.id}}
+            = image_tag 'inactive-heart.png'
+          .hidden{class: "snap_link_heart#{snap.id}", id: "activeHeart", data: {snap_id: snap.id}}  
+            = image_tag 'active-heart.png'
+      .snap_link_icon
+        = link_to snap_path(snap) do
+          = image_tag 'comment.png'
+      .snap_link_icon
+        = link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do
+          = image_tag 'share.png'
+    .snap_description
+      - if snap.like_count == 0
+        = snap.description
+      - elsif snap.like_count == 1
+        = "#{snap.favorite_users.first.profile.account} liked your post"
+      - else
+        = "#{snap.favorite_users.first.profile.account} and #{(snap.like_count - 1).to_s(:delimited)} other liked your post"
+    .snap_info
+      .snap_info_item
+        = snap.user.profile.account
+      .snap_info_item
+        = l snap.created_at, format: :short
+
+= javascript_pack_tag 'like'

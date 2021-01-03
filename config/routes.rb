@@ -16,7 +16,10 @@ Rails.application.routes.draw do
     resources :followers, only: [:index]
   end
 
-  resource :profile, only: %i[show update]
+  scope module: :apps do
+    resource :profile, only: %i[show update]
+    resource :timeline, only: [:show]
+  end
   
   namespace :api, defaults: { format: :json } do
     scope '/snaps/:snap_id' do
@@ -29,5 +32,4 @@ Rails.application.routes.draw do
       resources :unfollows, only: [:create]
     end
   end
-
 end

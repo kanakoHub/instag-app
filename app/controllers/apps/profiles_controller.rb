@@ -1,6 +1,5 @@
-class ProfilesController < ApplicationController
+class Apps::ProfilesController < Apps::ApplicationController
   def show
-    # @profile = current_user.profile
   end
 
   def update

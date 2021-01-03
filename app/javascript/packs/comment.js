@@ -9,7 +9,7 @@ const handleCommentForm = () => {
 }
 
 const appendNewComment = (comment) => {
-  $('.comments_container').append(
+  $('.comments_container').prepend(
     `<div class="comment_card">
     <div class="comment_author">
     <div class="comment_author_image"><img src=${comment.imgsrc}></div>

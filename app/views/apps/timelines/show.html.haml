@@ -1,0 +1,8 @@
+.container
+  .float_header
+    .back_btn
+      = link_to root_path do
+        = image_tag 'arrow.png'
+    .page_name
+      %p Timeline
+  = render 'commons/snap_card', snaps: @snaps

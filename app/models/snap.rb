@@ -16,6 +16,8 @@ class Snap < ApplicationRecord
   belongs_to :user
 
   has_many :likes, dependent: :destroy
+  has_many :favorite_users, through: :likes, source: :user
+
   has_many :comments, dependent: :destroy
 
   has_many_attached :snaps
@@ -41,5 +43,9 @@ class Snap < ApplicationRecord
     else
       "#{year_difference} years ago"
     end
+  end
+
+  def like_count
+    likes.count
   end
 end
