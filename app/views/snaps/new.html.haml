@@ -1,6 +1,5 @@
 .container
   %header
-    -# .status-btn
     .cancelbtn
       = link_to 'Cnacel', root_path
     %div
@@ -22,7 +21,6 @@
           = f.text_field :description, class: 'form_description', placeholder: " What's on your mind ? "
         %div
           = f.file_field :snaps, multiple: true, class: 'hidden'
-        -# %div
         = f.submit '保存', class: 'hidden'
       %button#album ＋ Album
 

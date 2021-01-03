@@ -12,16 +12,19 @@
     = render 'commons/snaps', snap: snap
     .snap_link
       .snap_link_icon
-        - if current_user.has_liked?(snap)
-          %div{class: "snap_link_heart#{snap.id}", id: "activeHeart", data: {snap_id: snap.id}}
-            = image_tag 'active-heart.png'
-          .hidden{class: "snap_link_heart#{snap.id}", id: "inactiveHeart", data: {snap_id: snap.id}}  
-            = image_tag 'inactive-heart.png'
+        - if user_signed_in?
+          - if current_user.has_liked?(snap)
+            %div{class: "snap_link_heart#{snap.id}", id: "activeHeart", data: {snap_id: snap.id}}
+              = image_tag 'active-heart.png'
+            .hidden{class: "snap_link_heart#{snap.id}", id: "inactiveHeart", data: {snap_id: snap.id}}  
+              = image_tag 'inactive-heart.png'
+          - else
+            %div{class: "snap_link_heart#{snap.id}", id: "inactiveHeart", data: {snap_id: snap.id}}
+              = image_tag 'inactive-heart.png'
+            .hidden{class: "snap_link_heart#{snap.id}", id: "activeHeart", data: {snap_id: snap.id}}  
+              = image_tag 'active-heart.png'
         - else
-          %div{class: "snap_link_heart#{snap.id}", id: "inactiveHeart", data: {snap_id: snap.id}}
-            = image_tag 'inactive-heart.png'
-          .hidden{class: "snap_link_heart#{snap.id}", id: "activeHeart", data: {snap_id: snap.id}}  
-            = image_tag 'active-heart.png'
+          = image_tag 'inactive-heart.png'
       .snap_link_icon
         = link_to snap_path(snap) do
           = image_tag 'comment.png'
