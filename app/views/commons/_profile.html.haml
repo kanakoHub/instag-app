@@ -22,10 +22,10 @@
       .count
         = user.snap_count
       %p posts
-    = link_to account_followings_path(user) do 
+    = link_to account_followers_path(user) do 
       .profilePage_user_have_item
         .count
-          %p#followers= user.follower_count
+          = user.follower_count
         %p followers
     = link_to account_followings_path(user) do
       .profilePage_user_have_item

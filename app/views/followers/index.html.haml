@@ -4,16 +4,16 @@
       = link_to :back do
         = image_tag 'arrow.png'
     .page_name
-      %p Followings
-- @followings.each do |followings|
+      %p Followers
+- @followers.each do |followers|
   .account_card
     .account_author
       .account_author_image
-        = link_to account_path(followings) do
-          = image_tag followings.avatar_image
+        = link_to account_path(followers) do
+          = image_tag followers.avatar_image
       .account_author_info
         .account_author_info_name
-          = followings.profile.account
+          = followers.profile.account
         .account_author_info_time
-          - if followings.snap_count != 0
-            = followings.snaps.last.time_difference
+          - if followers.snap_count != 0
+            = followers.snaps.last.time_difference
