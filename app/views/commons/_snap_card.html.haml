@@ -29,7 +29,12 @@
         = link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do
           = image_tag 'share.png'
     .snap_description
-      = snap.description
+      - if snap.like_count == 0
+        = snap.description
+      - elsif snap.like_count == 1
+        = "#{snap.favorite_users.first.profile.account} liked your post"
+      - else
+        = "#{snap.favorite_users.first.profile.account} and #{(snap.like_count - 1).to_s(:delimited)} other liked your post"
     .snap_info
       .snap_info_item
         = snap.user.profile.account
