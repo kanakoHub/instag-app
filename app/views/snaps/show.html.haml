@@ -3,10 +3,10 @@
     .back_btn
       = link_to root_path do
         = image_tag 'arrow.png'
-    .commentPage_title
+    .page_name
       %p Comment
   .comments_container#comment-show{data: {snap_id: @snap.id}}
-    - @snap.comments.each do |comment|
+    - @comments.each do |comment|
       .comment_card
         .comment_author
           .comment_author_image
