@@ -22,6 +22,11 @@
   }
 }
 
+.header_loginBtn {
+  cursor: pointer;
+  color: $label-base-color;
+}
+
 #album {
   cursor: pointer;
   margin: 40px 0;
