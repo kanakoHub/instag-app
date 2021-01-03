@@ -1,13 +1,6 @@
 @import './variables';
 
 .profilePage_user {
-  &_account {
-    text-align: center;
-
-    p {
-      font-size: $font-base-size + 6px;
-    }
-  }
 
   &_image {
     cursor: pointer;

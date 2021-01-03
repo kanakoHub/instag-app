@@ -1,0 +1,19 @@
+.account_container
+  .float_header
+    .back_btn
+      = link_to :back do
+        = image_tag 'arrow.png'
+    .page_name
+      %p Followings
+- @followings.each do |followings|
+  .account_card
+    .account_author
+      .account_author_image
+        = link_to account_path(followings) do
+          = image_tag followings.avatar_image
+      .account_author_info
+        .account_author_info_name
+          = followings.profile.account
+        .account_author_info_time
+          - if followings.snap_count != 0
+            = followings.snaps.last.time_difference

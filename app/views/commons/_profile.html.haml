@@ -1,0 +1,39 @@
+.container
+  .float_header
+    .back_btn
+      = link_to root_path do
+        = image_tag 'arrow.png'
+    .page_name
+      %p= user.profile.account
+    - if user != current_user
+      .follow_btn
+        - if current_user&.has_followed?(user)
+          %p{class: "account_follow", id: "unfollow", data: {account_id: user.id}} Unfollow
+        - else
+          %p{class: "account_follow", id: "follow", data: {account_id: user.id}} Follow
+  .profilePage_user_image
+    .profilePage_user_image_ellipse
+      = image_tag user.avatar_image, id: 'profilePageImage'
+    - if user == current_user
+      = form_with(model: @profile, id: 'profilePageForm', url: profile_path, method: 'put', local: true) do |f|
+        = f.file_field :avatar, class: 'hidden'
+  .profilePage_user_have
+    .profilePage_user_have_item
+      .count
+        = user.snap_count
+      %p posts
+    = link_to account_followers_path(user) do 
+      .profilePage_user_have_item
+        .count
+          = user.follower_count
+        %p followers
+    = link_to account_followings_path(user) do
+      .profilePage_user_have_item
+        .count
+          = user.following_count
+        %p followings
+  - user.snaps.each do |snap|
+    = render 'commons/snaps', snap: snap
+
+= javascript_pack_tag 'profile'
+= javascript_pack_tag 'follow'

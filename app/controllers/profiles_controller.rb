@@ -1,7 +1,6 @@
 class ProfilesController < ApplicationController
   def show
-    @user = current_user
-    @profile = @user.profile
+    # @profile = current_user.profile
   end
 
   def update
@@ -14,6 +13,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:account, :avatar)
+    params.permit(:account, :avatar)
   end
 end
