@@ -1,15 +1,5 @@
 @import './variables';
 
-.commentPage {
-  &_title {
-    text-align: center;
-
-    p {
-      font-size: $font-base-size + 6px;
-    }
-  }
-}
-
 .comment-text-area {
   textarea {
     position: fixed;
