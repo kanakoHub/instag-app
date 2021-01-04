@@ -35,9 +35,4 @@ document.addEventListener('DOMContentLoaded', () => {
   $(document).on('change', `#${avatar}`, (evt) => {
     addFileChange(evt)
   });
-
-  // const f = document.getElementById(avatar)
-  // f.addEventListener('change', (evt) => {
-  //   addFileChange(evt)
-  // });
 })
