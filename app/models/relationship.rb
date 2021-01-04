@@ -25,6 +25,7 @@ class Relationship < ApplicationRecord
   after_create :send_email
 
   private
+
   def send_email
     RelationshipMailer.new_follower(following, follower).deliver_later
   end

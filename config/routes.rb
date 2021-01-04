@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resource :profile, only: %i[show update]
     resource :timeline, only: [:show]
   end
-  
+
   namespace :api, defaults: { format: :json } do
     scope '/snaps/:snap_id' do
       resource :like, only: %i[create destroy]

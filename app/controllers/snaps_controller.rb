@@ -1,8 +1,8 @@
 class SnapsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :show]
+  before_action :authenticate_user!, only: %i[new create show]
 
   def index
-    @snaps = Snap.all.order(id: "DESC")
+    @snaps = Snap.all.order(id: 'DESC')
   end
 
   def new
@@ -21,7 +21,7 @@ class SnapsController < ApplicationController
 
   def show
     @snap = Snap.find(params[:id])
-    @comments = @snap.comments.order(id: "DESC")
+    @comments = @snap.comments.order(id: 'DESC')
   end
 
   private
