@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 読み込んだ画像ファイルをbuildHTMLに渡します
         var html = buildHTML(image)
         // 作成した.prev-contentを表示させます
-        $('.prev-contents').append(html);
+        $('.prev-contents').prepend(html);
       }
     }  
   });
