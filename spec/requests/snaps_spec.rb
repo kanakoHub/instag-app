@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Snaps", type: :request do
   let!(:user) { create(:user) }
-  let!(:snaps) { build_list(:snap, 3, user: user) }
-
+  let!(:snaps) { create_list(:snap, 3, user: user) }
+  
   describe "GET /snaps" do
     it "200ステータスが返ってくる" do
       get snaps_path
@@ -35,20 +35,20 @@ RSpec.describe "Snaps", type: :request do
   end
 
   describe "GET /snaps/:id" do
-    # context 'ログインしている場合' do
-    #   before do
-    #     sign_in user
-    #   end
+    context 'ログインしている場合' do
+      before do
+        sign_in user
+      end
       
-    #   it "200ステータスが返ってくる" do
-    #     get snap_path, params: { id: snap.id }
-    #     expect(response).to have_http_status(200)
-    #   end  
-    # end
+      it "200ステータスが返ってくる" do
+        get snap_path(snap_id: snap.id)
+        expect(response).to have_http_status(200)
+      end  
+    end
     
     context 'ログインしていない場合' do
       it "ログイン画面に遷移する" do
-        get snap_path(:snap)
+        get snap_path(snap_id: snap.id)
         expect(response).to redirect_to(new_user_session_path)
       end
     end
