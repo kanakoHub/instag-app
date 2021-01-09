@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .then((res) => {
         const comment = res.data
-        // debugger
         appendNewComment(comment)
         hiddenCommentForm()
       })
