@@ -13,7 +13,7 @@
             = image_tag comment.user.avatar_image
           .comment_author_info
             .comment_author_info_name
-              %p= comment.user.profile.account
+              %p= comment.author_name
             .comment_author_info_content
               %p= comment.content
   .float_btn.show-comment-form

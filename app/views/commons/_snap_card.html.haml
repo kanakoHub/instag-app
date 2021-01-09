@@ -6,7 +6,7 @@
           = image_tag snap.user.avatar_image
       .snap_author_info
         .snap_author_info_name
-          = snap.user.profile.account
+          = snap.author_name
         .snap_author_info_time
           = snap.time_difference
     = render 'commons/snaps', snap: snap
@@ -35,12 +35,12 @@
       - if snap.like_count == 0
         = snap.description
       - elsif snap.like_count == 1
-        = "#{snap.favorite_users.first.profile.account} liked your post"
+        = "#{snap.favorite_users.first.display_name} liked your post"
       - else
-        = "#{snap.favorite_users.first.profile.account} and #{(snap.like_count - 1).to_s(:delimited)} other liked your post"
+        = "#{snap.favorite_users.first.display_name} and #{(snap.like_count - 1).to_s(:delimited)} other liked your post"
     .snap_info
       .snap_info_item
-        = snap.user.profile.account
+        = snap.author_name
       .snap_info_item
         = l snap.created_at, format: :short
 

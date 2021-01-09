@@ -48,4 +48,8 @@ class Snap < ApplicationRecord
   def like_count
     likes.count
   end
+
+  def author_name
+    user.display_name
+  end
 end
