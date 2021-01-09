@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Snaps", type: :request do
   let!(:user) { create(:user) }
-  let!(:snaps) { create_list(:snap, 3, user: user) }
+  let!(:snap) { create(:snap, user: user) }
+  let!(:comment) { create(:comment, snap: snap, user: user) }
   
   describe "GET /snaps" do
     it "200ステータスが返ってくる" do
@@ -10,7 +11,7 @@ RSpec.describe "Snaps", type: :request do
       expect(response).to have_http_status(200)
     end
   end
-
+  
   describe "POST /snaps" do
     context 'ログインしている場合' do
       before do
@@ -33,7 +34,7 @@ RSpec.describe "Snaps", type: :request do
       end
     end
   end
-
+  
   describe "GET /snaps/:id" do
     context 'ログインしている場合' do
       before do
@@ -41,14 +42,14 @@ RSpec.describe "Snaps", type: :request do
       end
       
       it "200ステータスが返ってくる" do
-        get snap_path(snap_id: snap.id)
+        get snap_path(id: snap.id)
         expect(response).to have_http_status(200)
       end  
     end
     
     context 'ログインしていない場合' do
       it "ログイン画面に遷移する" do
-        get snap_path(snap_id: snap.id)
+        get snap_path(id: snap.id)
         expect(response).to redirect_to(new_user_session_path)
       end
     end
