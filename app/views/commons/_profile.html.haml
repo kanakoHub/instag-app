@@ -4,7 +4,7 @@
       = link_to root_path do
         = image_tag 'arrow.png'
     .page_name
-      %p= user.profile.account
+      %p= user.display_name
     - if user != current_user
       .follow_btn
         - if current_user&.has_followed?(user)

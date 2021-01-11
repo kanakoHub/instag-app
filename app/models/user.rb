@@ -62,6 +62,10 @@ class User < ApplicationRecord
     end
   end
 
+  def display_name
+    profile&.account || self.email.split('@').first
+  end
+
   def snap_count
     snaps.count
   end

@@ -1,11 +1,17 @@
 class Api::CommentsController < Api::ApplicationController
+  def index
+    snap = Snap.find(params[:snap_id])
+    comments = snap.comments
+    render json: comments
+  end
+  
   def create
-    @snap = Snap.find(params[:snap_id])
-    @comment = @snap.comments.build(comment_params)
-    @comment.save!
-    imgsrc = url_for(@comment.user.profile.avatar)
-    account = @comment.user.profile.account
-    render json: { account: account, comment: @comment, imgsrc: imgsrc }
+    snap = Snap.find(params[:snap_id])
+    comment = snap.comments.build(comment_params)
+    comment.save!
+    imgsrc = url_for(comment.user.profile.avatar)
+    account = comment.user.profile.account
+    render json: { account: account, comment: comment, imgsrc: imgsrc }
   end
 
   private

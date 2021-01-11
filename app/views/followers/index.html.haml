@@ -13,7 +13,7 @@
           = image_tag followers.avatar_image
       .account_author_info
         .account_author_info_name
-          = followers.profile.account
+          = followers.display_name
         .account_author_info_time
           - if followers.snap_count != 0
             = followers.snaps.last.time_difference

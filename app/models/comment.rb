@@ -22,12 +22,16 @@ class Comment < ApplicationRecord
 
   after_save :send_email
 
+  def author_name
+    user.display_name
+  end
+
   private
 
   def send_email
     users = User.all
     users.each do |user|
-      CommentMailer.including_account(user, snap, content).deliver_later if content.include?("@#{user.profile.account}")
+      CommentMailer.including_account(user, snap, content).deliver_later if content.include?("@#{user.display_name}")
     end
   end
 end
