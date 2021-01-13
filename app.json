@@ -1,0 +1,16 @@
+{
+    "name": "instagapp",
+    "description": "This is instagapp",
+    "keywords": [],
+    "website": "",
+    "repository": "https://github.com/kanakoHub/instag-app",
+    "env": {},
+    "addons": [
+      "heroku-postgresql:hobby-dev"
+    ],
+    "buildpacks": [{
+      "url": "heroku/nodejs"
+    }, {
+      "url": "heroku/ruby"
+    }]
+  }
