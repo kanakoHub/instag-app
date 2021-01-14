@@ -32,8 +32,10 @@
         .count
           = user.following_count
         %p followings
+  - count_snap = 1
   - user.snaps.each do |snap|
-    = render 'commons/snaps', snap: snap
+    = render partial: 'commons/snaps', locals: { snap: snap, count_snap: count_snap }
+    - count_snap += 1
 
 = javascript_pack_tag 'profile'
 = javascript_pack_tag 'follow'

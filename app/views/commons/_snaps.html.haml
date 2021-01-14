@@ -1,10 +1,28 @@
 .snap_wrapper
-  - count = 1
+  - count_image = 1
   - snap.snaps.each do |image|
-    - if count % 6 == 1 || count % 6 == 5
-      .snap_wrapper_image{class: "image-large"}
-        = image_tag(image)
+    - if count_snap == 0
+      - if count_image % 6 == 1 || count_image % 6 == 5
+        .snap_wrapper_image{class: "image-large"}
+          = image_tag(image)
+      - else
+        .snap_wrapper_image{class: "image-small"}
+          = image_tag(image)
+      - count_image += 1
     - else
-      .snap_wrapper_image{class: "image-small"}
-        = image_tag(image)
-    - count += 1
+      - if count_snap % 2 == 1
+        - if count_image % 6 == 1 || count_image % 6 == 5
+          .snap_wrapper_image{class: "image-large"}
+            = image_tag(image)
+        - else
+          .snap_wrapper_image{class: "image-small"}
+            = image_tag(image)
+        - count_image += 1
+      - else
+        - if count_image % 6 == 2 || count_image % 6 == 4
+          .snap_wrapper_image{class: "image-large"}
+            = image_tag(image)
+        - else
+          .snap_wrapper_image{class: "image-small"}
+            = image_tag(image)
+        - count_image += 1

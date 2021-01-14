@@ -9,7 +9,8 @@
           = snap.author_name
         .snap_author_info_time
           = snap.time_difference
-    = render 'commons/snaps', snap: snap
+    - count_snap = 0
+    = render partial: 'commons/snaps', locals: { snap: snap, count_snap: count_snap }
     .snap_link
       .snap_link_icon
         - if user_signed_in?
